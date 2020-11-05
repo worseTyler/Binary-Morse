@@ -3,7 +3,7 @@
 int main(void) {
 	BinaryTree<char, std::string> test("Convert.txt");
 
-	test.convert("THIS IS WORKING!!");
+	test.convert("NEW BRANCH");
 
 	return 0;
 }
