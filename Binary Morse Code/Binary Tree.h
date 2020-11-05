@@ -13,13 +13,13 @@ private:
 	void display_in_order(TreeNode<T, M>*) const;
 	void display_pre_order(TreeNode<T, M>*) const;
 	void display_post_order(TreeNode<T, M>*) const;
-	//void destroy_subtree(TreeNode<T, M>*&);
+	void destroy_subtree(TreeNode<T, M>*&);
 public:
 	BinaryTree() {
 		root = nullptr;
 	}
 	BinaryTree(std::string file_name);
-	//~BinaryTree();
+	~BinaryTree();
 	void insert_node(T, M);
 	void display_in_order();
 	void display_pre_order();
@@ -52,9 +52,10 @@ void BinaryTree<T, M>::insert_node(T letter, M morse) {
 	insert(root, newNode);
 }
 
-//~BinaryTree() {
-//
-//}
+template <class T, class M>
+BinaryTree<T,M>::~BinaryTree() {
+	destroy_sub_tree(root);
+}
 
 template <class T, class M>
 void BinaryTree<T, M>::insert(TreeNode<T, M>*& nodePtr, TreeNode<T, M>*& newNode) {
@@ -134,7 +135,17 @@ void BinaryTree<T, M>::convert(std::string input) {
 }
 
 
-//template <class T, class M>
+template <class T, class M>
+void BinaryTree<T, M>::destroy_subtree(TreeNode<T, M>*& NodePtr) {
+	if (NodePtr) {
+		if (NodePtr->left)
+			destroy_subtree(NodePtr->left);
+		if (NodePtr->right)
+			destroy_subtree(NodePtr->right);
+		delete NodePtr;
+	}
+}
+
 
 #endif
 
