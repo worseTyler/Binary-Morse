@@ -54,7 +54,7 @@ void BinaryTree<T, M>::insert_node(T letter, M morse) {
 
 template <class T, class M>
 BinaryTree<T,M>::~BinaryTree() {
-	destroy_sub_tree(root);
+	destroy_subtree(root);
 }
 
 template <class T, class M>
