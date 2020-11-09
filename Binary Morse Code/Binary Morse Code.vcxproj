@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Convert.txt" />
+    <Text Include="MorseCode.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

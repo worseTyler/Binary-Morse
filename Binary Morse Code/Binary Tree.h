@@ -29,7 +29,7 @@ public:
 
 };
 
-template<class T, class M>
+template <class T, class M>
 BinaryTree<T, M>::BinaryTree(std::string file_name) {
 	root = nullptr;
 	std::ifstream convert(file_name);
@@ -128,9 +128,13 @@ M BinaryTree<T, M>::search(T data) {
 
 template <class T, class M>
 void BinaryTree<T, M>::convert(std::string input) {
-	char* input_string = const_cast<char*>(input.c_str());
-	for (int index = 0; input_string[index]; index++) {
-		std::cout << search(input_string[index]) << std::endl;
+	for (unsigned int index = 0; index < input.length(); index++) {
+		if (input[index] >= 'a' && input[index] <= 'z')
+			input[index] = (char)toupper(input.at(index));
+		if (input[index] == (char)32)
+			std::cout << "   ";
+		else
+			std::cout << search(input.at(index)) << " ";
 	}
 }
 
